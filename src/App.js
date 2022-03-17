@@ -8,7 +8,6 @@ import NavBar from './Navbar';
 
 
 
-
 function App() {
 
     if (!localStorage.getItem('tasks')) {
@@ -28,7 +27,7 @@ function App() {
         let addTask = event.target[0].value
 
         // Condition to check if user try to submit empty form
-        if (addTask.length == 0) {
+        if (addTask.length === 0) {
             return false
         }
         //  Setting myTask function to new task
@@ -71,7 +70,7 @@ function App() {
               </form>
 
               {/* iterating the task into dom using map */}
-              <div>
+              <div id={'list-item'}>
                   {myTask.map((item) => {
                       return <li id={'list'}>{item}</li>
                   })}
