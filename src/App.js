@@ -19,7 +19,7 @@ function App() {
     const [task, setTask] = useState([])
     console.log(task)
     let myTask = JSON.parse(localStorage.getItem('tasks'))
-    
+
 
     // Handel form submit
     const handelSubmit = (event) => {
@@ -27,6 +27,10 @@ function App() {
 
         let addTask = event.target[0].value
 
+        // Condition to check if user try to submit empty form
+        if (addTask.length == 0) {
+            return false
+        }
         //  Setting myTask function to new task
         myTask.push(addTask)
         setTask(myTask)
