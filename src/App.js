@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
+import NavBar from './Navbar';
 
 
 
@@ -17,7 +18,6 @@ function App() {
     // Handel form submit
     const handelSubmit = (event) => {
         event.preventDefault();
-        console.log(event.target[0].value)
 
         let addTask = event.target[0].value
 
@@ -32,36 +32,42 @@ function App() {
     }
 
   return (
-    <div className="App">
+      <div>
 
-      <h1>Todo App</h1>
+          <NavBar />
 
-        <form onSubmit={handelSubmit}>
+          <div className="App">
 
-                <Box
-                    sx={{
-                        marginTop: 7,
-                        marginBottom: 7,
-                        maxWidth: '100%',
-                        marginLeft: '25%',
-                        marginRight: '25%'
-                    }}
-                >
-                    <TextField fullWidth label="Task" id="inputTask"/>
-                </Box>
+              <h1>Todo App</h1>
 
-            <Button variant="contained" endIcon={<SendIcon />} type={'submit'}>
-                Add Task
-            </Button>
-        </form>
+              <form onSubmit={handelSubmit}>
 
-        {/* iterating the task into dom using map */}
-        <div>
-            {task.map((item) => {
-                return <li id={'list'}>{item}</li>
-            })}
-        </div>
-    </div>
+                  <Box
+                      sx={{
+                          marginTop: 7,
+                          marginBottom: 7,
+                          maxWidth: '100%',
+                          marginLeft: '25%',
+                          marginRight: '25%'
+                      }}
+                  >
+                      <TextField fullWidth label="Task" id="inputTask"/>
+                  </Box>
+
+                  <Button color={'success'} variant="contained" endIcon={<SendIcon />} type={'submit'}>
+                      Add Task
+                  </Button>
+              </form>
+
+              {/* iterating the task into dom using map */}
+              <div>
+                  {task.map((item) => {
+                      return <li id={'list'}>{item}</li>
+                  })}
+              </div>
+          </div>
+      </div>
+
   );
 }
 
