@@ -11,9 +11,13 @@ import NavBar from './Navbar';
 
 function App() {
 
+    if (!localStorage.getItem('tasks')) {
+        localStorage.setItem('tasks', JSON.stringify([]))
+    }
+
     // Using useState for task
     const [task, setTask] = useState([])
-    let myTask = JSON.parse(JSON.stringify(task))
+    let myTask = JSON.parse(localStorage.getItem('tasks'))
 
     // Handel form submit
     const handelSubmit = (event) => {
@@ -24,6 +28,7 @@ function App() {
         //  Setting myTask function to new task
         myTask.push(addTask)
         setTask(myTask)
+        localStorage.setItem('tasks', JSON.stringify(myTask))
 
         // Setting input value null after submit
         document.getElementById('inputTask').value = "";
@@ -61,11 +66,12 @@ function App() {
 
               {/* iterating the task into dom using map */}
               <div>
-                  {task.map((item) => {
+                  {myTask.map((item) => {
                       return <li id={'list'}>{item}</li>
                   })}
               </div>
           </div>
+          <br/> <br/><br/>
       </div>
 
   );
