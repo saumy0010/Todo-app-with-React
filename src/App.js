@@ -17,7 +17,9 @@ function App() {
 
     // Using useState for task
     const [task, setTask] = useState([])
+    console.log(task)
     let myTask = JSON.parse(localStorage.getItem('tasks'))
+    
 
     // Handel form submit
     const handelSubmit = (event) => {
