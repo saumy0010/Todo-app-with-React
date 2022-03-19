@@ -8,7 +8,14 @@ form {
 
 #list{
   font-size: larger;
-  margin-bottom: 25px;
+  margin-bottom: 22px;
   list-style-type: none;
+  border-radius: 6px;
+  min-width: 100%;
 }
 
+#icon-btn {
+  border: none;
+  background: none;
+  float: right;
+}

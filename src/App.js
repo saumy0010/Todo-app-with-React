@@ -5,6 +5,9 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import NavBar from './Navbar';
+import { Container, Row, Col } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -37,9 +40,10 @@ function App() {
 
         // Setting input value null after submit
         document.getElementById('inputTask').value = "";
-
-
     }
+
+    // Handel delete function
+    
 
   return (
       <div>
@@ -48,7 +52,7 @@ function App() {
 
           <div className="App">
 
-              <h1>Todo App</h1>
+              <h1 style={{ marginTop: 30 }}>Todo App</h1>
 
               <form onSubmit={handelSubmit}>
 
@@ -67,14 +71,29 @@ function App() {
                   <Button color={'success'} variant="contained" endIcon={<SendIcon />} type={'submit'}>
                       Add Task
                   </Button>
+
               </form>
 
               {/* iterating the task into dom using map */}
-              <div id={'list-item'}>
-                  {myTask.map((item) => {
-                      return <li id={'list'}>{item}</li>
-                  })}
+              <div className={'container'}>
+
+                  <div id={'list-item'}>
+                      <Container>
+                          <Row>
+                              <Col>
+                                  {myTask.map((item) => {
+                                      return <li id={'list'}>{item}
+                                         <button id={'icon-btn'}>
+                                             <FontAwesomeIcon icon={faTrash} color={'grey'}/>
+                                         </button>
+                                      </li>
+                                  })}</Col>
+                          </Row>
+                      </Container>
+
+                  </div>
               </div>
+
           </div>
           <br/> <br/><br/>
       </div>
