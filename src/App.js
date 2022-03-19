@@ -43,7 +43,7 @@ function App() {
     }
 
     // Handel delete function
-    
+
 
   return (
       <div>
