@@ -6,7 +6,7 @@ form {
   margin-bottom: 50px;
 }
 
-#list{
+.list{
   font-size: larger;
   margin-bottom: 22px;
   list-style-type: none;
@@ -14,8 +14,9 @@ form {
   min-width: 100%;
 }
 
-#icon-btn {
+.icon-btn {
   border: none;
   background: none;
   float: right;
+  width: 50px;
 }

@@ -13,6 +13,9 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 function App() {
 
+    let i = 0, j = 0;
+
+
     if (!localStorage.getItem('tasks')) {
         localStorage.setItem('tasks', JSON.stringify([]))
     }
@@ -43,6 +46,18 @@ function App() {
     }
 
     // Handel delete function
+
+    const handelDelete = (event) => {
+        console.log(event.target.id)
+        let id = event.target.id
+        if (id === "") {
+            return false
+        }
+        //alert(myTask[id])
+        myTask.splice(id, 1)
+        setTask(myTask)
+        localStorage.setItem('tasks', JSON.stringify(myTask))
+    }
 
 
   return (
@@ -81,10 +96,11 @@ function App() {
                       <Container>
                           <Row>
                               <Col>
+
                                   {myTask.map((item) => {
-                                      return <li id={'list'}>{item}
-                                         <button id={'icon-btn'}>
-                                             <FontAwesomeIcon icon={faTrash} color={'grey'}/>
+                                      return <li  className={'list'}>{item}
+                                         <button onClick={handelDelete} className={'icon-btn'} id={i++}>
+                                             <FontAwesomeIcon onClick={handelDelete} icon={faTrash} color={'grey'} id={j++}/>
                                          </button>
                                       </li>
                                   })}</Col>
