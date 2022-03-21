@@ -27,7 +27,7 @@ function App() {
 
 
     // Handel form submit
-    const handelSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
 
         let addTask = event.target[0].value
@@ -47,8 +47,8 @@ function App() {
 
     // Handel delete function
 
-    const handelDelete = (event) => {
-        console.log(event.target.id)
+    const handleDelete = (event) => {
+
         let id = event.target.id
         if (id === "") {
             return false
@@ -69,7 +69,7 @@ function App() {
 
               <h1 style={{ marginTop: 30 }}>Todo App</h1>
 
-              <form onSubmit={handelSubmit}>
+              <form onSubmit={handleSubmit}>
 
                   <Box
                       sx={{
@@ -99,8 +99,8 @@ function App() {
 
                                   {myTask.map((item) => {
                                       return <li  className={'list'}>{item}
-                                         <button onClick={handelDelete} className={'icon-btn'} id={i++}>
-                                             <FontAwesomeIcon onClick={handelDelete} icon={faTrash} color={'grey'} id={j++}/>
+                                         <button onClick={handleDelete} className={'icon-btn'} id={i++}>
+                                             <FontAwesomeIcon onClick={handleDelete} icon={faTrash} color={'grey'} id={j++}/>
                                          </button>
                                       </li>
                                   })}</Col>
